@@ -4,20 +4,56 @@ import "./style.css";
 
 export const Synth = () => {
 
-    const playSynth = () => {
+  const playSynth = () => {
 
-        const synth = new Tone.PolySynth(Tone.Synth).toDestination(),
-              now = Tone.now();
-    
-        synth.triggerAttack("264", now);
-        synth.triggerAttack("329.628", now + 0.5);
-        synth.triggerAttack("391.995", now + 1);
-        synth.triggerAttack("466.164", now + 1.5);
-        synth.triggerRelease(["264", "329.628", "391.995", "466.164"], now + 4);
+    const synth = new Tone.FMSynth().toDestination();
+    const notes = ["264", "329.628", "391.995", "466.164"];
+    let index = 0;
+
+    synth.set({
+      "harmonicity":8,
+      "modulationIndex": 2,
+      "oscillator" : {
+          "type": "sine"
+      },
+      "envelope": {
+          "attack": 0.001,
+          "decay": 2,
+          "sustain": 0.1,
+          "release": 2
+      },
+      "modulation" : {
+          "type" : "square"
+      },
+      "modulationEnvelope" : {
+          "attack": 0.002,
+          "decay": 0.2,
+          "sustain": 0,
+          "release": 0.5
       }
+  });
+
+  const synthPart = new Tone.Sequence(
+    function(time, note) {
+      index++;
+      if (index > notes.length){
+        synthPart.stop();
+      } else {
+        synth.triggerAttackRelease(note, "100hz", time);
+      }
+    },
+    notes,
+    "4n"
+  );
+
+  synthPart.start();
+  Tone.Transport.start(); 
+
+}
       
-      return (
-        <button className="button" onClick={playSynth}>click me</button>
-      );
+  return (
+    <button className="button" onClick={playSynth}>click me</button>
+  );
+
 }
 
