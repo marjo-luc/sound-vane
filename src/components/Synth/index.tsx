@@ -6,46 +6,38 @@ export const Synth = () => {
 
   const playSynth = () => {
 
-    const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
+    const reverb = new Tone.Reverb().toDestination();
+    const synth = new Tone.PolySynth(Tone.FMSynth).chain(reverb).toDestination();
     const notes = ["264", "329.628", "391.995", "466.164"];
     let index = 0;
 
     synth.set({
-      "harmonicity":8,
-      "modulationIndex": 2,
+      "harmonicity": 0,
+      "modulationIndex": 1,
       "oscillator" : {
           "type": "sine"
       },
       "envelope": {
-          "attack": 0.002,
+          "attack": 0.007,
           "decay": 1,
-          "sustain": 0.1,
-          "release": 1
-      },
-      "modulation" : {
-          "type" : "square"
-      },
-      "modulationEnvelope" : {
-          "attack": 0.002,
-          "decay": 0.2,
-          "sustain": 0,
-          "release": 0.5
+          "sustain": 0.5,
+          "release": 0.007
       }
-  });
+    });
 
-  const synthPart = new Tone.Sequence(
-    function(time, note) {
-      index++;
-      if (index > notes.length){
-        synthPart.stop();
-        synth.triggerAttackRelease(notes, "4n");
-      } else {
-        synth.triggerAttackRelease(note, "100hz", time);
-      }
-    },
-    notes,
-    "4n"
-  );
+    const synthPart = new Tone.Sequence(
+      function(time, note) {
+        index++;
+        if (index > notes.length){
+          synthPart.stop();
+          synth.triggerAttackRelease(notes, "1n", time, 0.75);
+        } else {
+          synth.triggerAttackRelease(note, "2n", time, 1);
+        }
+      },
+      notes,
+      "2n"
+    );
 
   synthPart.start();
   Tone.Transport.start(); 
@@ -57,4 +49,3 @@ export const Synth = () => {
   );
 
 }
-
