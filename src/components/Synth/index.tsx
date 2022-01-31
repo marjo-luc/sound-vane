@@ -6,7 +6,7 @@ export const Synth = () => {
 
   const playSynth = () => {
 
-    const synth = new Tone.FMSynth().toDestination();
+    const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
     const notes = ["264", "329.628", "391.995", "466.164"];
     let index = 0;
 
@@ -17,10 +17,10 @@ export const Synth = () => {
           "type": "sine"
       },
       "envelope": {
-          "attack": 0.001,
-          "decay": 2,
+          "attack": 0.002,
+          "decay": 1,
           "sustain": 0.1,
-          "release": 2
+          "release": 1
       },
       "modulation" : {
           "type" : "square"
@@ -38,6 +38,7 @@ export const Synth = () => {
       index++;
       if (index > notes.length){
         synthPart.stop();
+        synth.triggerAttackRelease(notes, "4n");
       } else {
         synth.triggerAttackRelease(note, "100hz", time);
       }
