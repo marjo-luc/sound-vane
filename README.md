@@ -2,6 +2,10 @@
 
 Air quality you can hear.
 
+Sound Vane leverages utilities from the World Air Quality Index Project. To learn more about the project, make sure to visit their site here: https://aqicn.org/
+
+Tone.js is a Web Audio framework for creating interactive music in the browser. (https://tonejs.github.io/)
+
 ## Develop
 
 Sound Vane uses React Typescript for its frontend and NodeJS for its backend. By default, the frontend runs on port 3000 and the backend runs on port 3001.
