@@ -12,7 +12,6 @@ export const MapBox = () => {
     useEffect(() => {
         // Make test call to backend server
         console.log("Sending request to frontend api handler.")
-        testBackend().then(res => { console.log("The message from the backend: ", res)})
     }, [])
 
     return (

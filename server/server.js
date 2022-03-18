@@ -1,5 +1,7 @@
 const express = require("express")
 const app = express()
+const map_box = require("./routes/MapBox")
+const air_quality =require("./routes/AirQuality")
 
 BACKEND_PORT = 3001
 
@@ -9,13 +11,10 @@ app.use(function(req, res, next) {
     next();
 });
 
-
-app.get('/test', function (req, res) {
-    // This is where the actual api calls are handled
-    res.status(200).send({message: 'Reached the backend!'});
-})
-
+app.use("/mb", map_box)
+app.use("/aq", air_quality)
 
 app.listen(BACKEND_PORT, () => {
   console.log("Node server listening on port: ", BACKEND_PORT)
 })
+
