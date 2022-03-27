@@ -19,7 +19,8 @@ export const MapBox = () => {
             style="mapbox://styles/mapbox/streets-v9"
             containerStyle={{
                 height: '100vh',
-                width: '100vw'
+                width: '100vw',
+                zIndex: '1'
             }}
         >
             <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
