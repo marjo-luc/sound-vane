@@ -1,0 +1,19 @@
+.player-wrapper {
+    width: fit-content;
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    background-color: hsla(0 , 0%, 100% ,0.7);
+    z-index: 2;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+h2 {
+    color: var(--purple);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}

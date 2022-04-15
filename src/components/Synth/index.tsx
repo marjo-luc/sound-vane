@@ -1,6 +1,6 @@
 import React from "react";
 import * as Tone from "tone";
-import { BasicButton } from "../Buttons";
+import { PlayButton } from "../Buttons";
 import "./style.css";
 
 export const Synth = () => {
@@ -47,7 +47,7 @@ export const Synth = () => {
       
   return (
     // <button className="button" onClick={playSynth}>click me</button>
-    <BasicButton onClick={playSynth} text="click me" />
+    <PlayButton onClick={playSynth} text="click me" />
   );
 
 }

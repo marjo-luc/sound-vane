@@ -12,3 +12,7 @@ export const ExpandButton = () => {
 export const BasicButton = (props: any) => {
     return <Button className="margin-5px" onClick={props.onClick}>{props.text}</Button>
 }
+
+export const PlayButton = (props: any) => {
+    return <Button className="play-button" onClick={props.onClick}></Button>
+}

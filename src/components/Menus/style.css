@@ -4,10 +4,21 @@
     top: 2rem;
     left: 2rem;
     padding: 1rem;
-    background-color: rgb(97 0 255 / 60%);
+    background-color: var(--purple);
     border: #3c0379;
     border-style: solid;
     z-index: 2;
+}
+
+.menu-wrapper input {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.menu-wrapper input::placeholder {
+    color: white;
 }
 
 .main-menu {
