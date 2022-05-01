@@ -1,16 +1,18 @@
-import React from 'react';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import React, { useState } from 'react';
 import { MapBox } from './components/Map';
-import { MainMenu } from './components/Menus';
 import { Player } from './components/Player';
 import { Crosshair } from './components/Crosshair';
+import { LngLatLike } from 'mapbox-gl';
 
-function App() {
+
+export const App = () => {
+
+  const [lnglat, setLngLat] = useState<LngLatLike>({lng: -70.9, lat: 42.35});
+
   return (
     <>
-      {/* <MainMenu /> */}
-      <MapBox />
-      <Player />
+      <MapBox lnglat={lnglat} setLngLat={setLngLat}/>
+      <Player lnglat={lnglat}/>
       <Crosshair />
     </>
   );
