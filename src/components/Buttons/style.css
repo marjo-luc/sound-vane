@@ -25,4 +25,32 @@
 
 .play-button:hover {
     opacity: 0.7;
+    background-color: var(--purple);
+}
+
+.icon-button  {
+    background-color: transparent;
+    color: var(--purple);
+    border-color: transparent;
+    padding: 0.25rem;
+    border-radius: 0;
+}
+
+.icon-button:hover {
+    opacity: 0.5;
+    background-color: transparent;
+    color: var(--purple);
+    border-color: transparent;
+}
+
+.icon-button:active {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-primary:focus {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: inherit;
 }

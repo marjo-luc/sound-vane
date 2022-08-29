@@ -1,29 +1,52 @@
-.menu-wrapper {
-    width: fit-content;
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    padding: 1rem;
-    background-color: var(--purple);
-    border: #3c0379;
-    border-style: solid;
-    z-index: 2;
-}
-
-.menu-wrapper input {
-    background: none;
-    border: 0;
-    border-bottom: 1px solid white;
-    color: white;
-}
-
-.menu-wrapper input::placeholder {
-    color: white;
-}
-
-.main-menu {
+/* .main-menu {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+} */
+
+.main-menu {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    background-color: hsla(0 , 0%, 100% ,0.7);
+    z-index: 2;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.main-menu-expand {
+    animation-name: expand;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes expand {
+    from {height: 25vh;}
+    to {height: 80vh;}
+}
+
+.main-menu-contract {
+    animation-name: contract;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes contract {
+    from {height: 80vh;}
+    to {height: 25vh;}
+}
+
+.nav-bar {
+    display: flex;
+}
+
+.nav-link {
+    padding: 0.25rem;
 }
 

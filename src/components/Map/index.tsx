@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import "./style.css";
+import { getAQIValues } from '../../apis/aqi';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX;
 
-export const MapBox = ({lnglat, setLngLat}) => {
+export const MapBox = ({lnglat, setLngLat, setAQI}) => {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [zoom, setZoom] = useState(9);
@@ -27,6 +28,12 @@ export const MapBox = ({lnglat, setLngLat}) => {
             setZoom(map.current.getZoom().toFixed(2));
         });
     });
+
+    useEffect(() => {
+        getAQIValues(lnglat).then((result) => {
+            setAQI(result)
+        })
+    }, [lnglat, setAQI]);
 
     return (
         <div>
