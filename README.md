@@ -16,6 +16,7 @@ Clone the git repo:
 `git clone https://github.com/marjo-luc/sound-vane.git`
 
 Run the startup script to start the frontend and backend:
+
 `bash sound_vane.sh`
 
 
