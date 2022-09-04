@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const axios = require('axios')
+require('dotenv').config()
 
 router.get("/", (req, res, next) => {
     res.status(200).send({ data: 'Air Quality' });
@@ -8,11 +9,10 @@ router.get("/", (req, res, next) => {
 
 router.get("/location", (req, res, next) => {
 
-    console.log(process.env)
+    console.log(process.env.AQI_TOKEN)
     let { lng, lat } = req.query
-    axios.get(`https://api.waqi.info/feed/geo:${lat};${lng}/?token=8a8851cbcfb8c720fac9f996d042e4638590b9aa`)
+    axios.get(`https://api.waqi.info/feed/geo:${lat};${lng}/?token=${process.env.AQI_TOKEN}`)
         .then(response => {
-            //console.log(response.data);
             res.status(200).send({ response: response.data });
         })
         .catch(error => {
