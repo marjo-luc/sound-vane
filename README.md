@@ -23,7 +23,7 @@ In one terminal, start the frontend:
 
 In a second terminal, start the backend:
 
-`node server/server.js`
+`npm run clean-start`
 
 
 Navigate to [http://localhost:3000](http://localhost:3000) to see the app. The page will reload as you make edits.

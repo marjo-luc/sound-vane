@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "clean-start": "npm run clean && npm i && node server.js",
+    "start": "node server.js",
+    "clean": "rm package-lock.json && rm -rf node_modules"
   },
   "author": "",
   "license": "ISC",

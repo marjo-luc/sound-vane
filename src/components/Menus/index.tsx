@@ -36,7 +36,7 @@ export const MainMenu = (props: any) => {
 
     const getSelectedPage = () => {
         switch (selectedPage) {
-            case "data": return <MetricsAQI />
+            case "data": return <MetricsAQI aqi={props.aqi} />
             case "music": return <MusicAQIDetails />
             default: return <span>test 2</span>
         }
