@@ -15,13 +15,17 @@ Clone the git repo:
 
 `git clone https://github.com/marjo-luc/sound-vane.git`
 
+Run the startup script to start the frontend and backend:
 
-In one terminal, start the frontend:
+`bash sound_vane.sh`
+
+
+Alternatively, in one terminal run the following to start the frontend:
 
 `npm start`
 
 
-In a second terminal, start the backend:
+In a second terminal, run the following to start the backend:
 
 `npm run clean-start`
 
