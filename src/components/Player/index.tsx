@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { getRelativeAQI } from "../../utils/aqi";
+import { SheetMusic } from '../SheetMusic';
 import { Synth } from '../Synth';
 import "./style.css";
 
 export const Player = ({lnglat, aqi}) => {
 
-    const [isPlaying, setIsPlaying] = useState(false)
-    
     if (aqi) {
         console.log("The air quality values are: ", aqi)
         console.log("The air quality relative values are: ", getRelativeAQI(aqi))
@@ -23,6 +22,7 @@ export const Player = ({lnglat, aqi}) => {
         {/* <h2>{lnglat.lng}, {lnglat.lat}<br/>15 Apr 2022</h2> */}
         {aqi && 
             <>
+                <SheetMusic />
                 <Synth RelativeAQI={getRelativeAQI(aqi)} />
                 <div className="flex key">
                     <div className="keyItem">
