@@ -19,7 +19,6 @@ export const Player = ({lnglat, aqi}) => {
             </div>
             <div>15:08</div>
         </div>
-        {/* <h2>{lnglat.lng}, {lnglat.lat}<br/>15 Apr 2022</h2> */}
         {aqi && 
             <>
                 <SheetMusic />
