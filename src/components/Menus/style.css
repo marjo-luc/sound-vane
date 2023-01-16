@@ -13,29 +13,32 @@
     background-color: hsla(0 , 0%, 100% ,0.7);
     z-index: 2;
     border-radius: 10px;
-    width: 100%;
-    max-width: 300px;
+    /* width: 100%; */
+    /* max-width: 300px; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
-
+/* 
 .main-menu-expand {
     animation-name: expand;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-}
+} 
+*/
 
 @keyframes expand {
     from {height: 25vh;}
     to {height: 80vh;}
 }
 
+/* 
 .main-menu-contract {
     animation-name: contract;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
+*/
 
 @keyframes contract {
     from {height: 80vh;}

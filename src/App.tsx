@@ -12,7 +12,6 @@ export const App = () => {
   return (
     <>
       <MapBox lnglat={lnglat} setLngLat={setLngLat} setAQI={setAQI}/>
-      {/* <Player lnglat={lnglat} aqi={aqi}/> */}
       <MainMenu lnglat={lnglat} aqi={aqi} />
       <Crosshair />
     </>
