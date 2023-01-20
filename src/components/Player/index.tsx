@@ -12,16 +12,9 @@ export const Player = ({lnglat, aqi}) => {
     }
 
     return <div className="player-wrapper">
-        <div className="flex space-between">
-            <div>
-                <div>Los Angeles</div>
-                <div>USA</div>
-            </div>
-            <div>15:08</div>
-        </div>
         {aqi && 
             <>
-                <SheetMusic />
+                <SheetMusic RelativeAQI={getRelativeAQI(aqi)} />
                 <Synth RelativeAQI={getRelativeAQI(aqi)} />
                 <div className="flex key">
                     <div className="keyItem">

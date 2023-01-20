@@ -17,8 +17,8 @@ export const Synth = ({RelativeAQI}) => {
 
     function PitchToNotation(num) {
       switch (num) {
-        case "SHARP": return "#4"
-        case "FLAT": return "b4"
+        case "#": return "#4"
+        case "b": return "b4"
         default: return "4"
       }
     }
@@ -69,7 +69,7 @@ export const Synth = ({RelativeAQI}) => {
 
         setTimeout(() => {
           setIsPlaying(false)
-        }, 3000);
+        }, 5000);
       }
 
     },[RelativeAQI]);
