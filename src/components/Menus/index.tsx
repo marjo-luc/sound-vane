@@ -43,7 +43,7 @@ export const MainMenu = (props: any) => {
     }
 
     return <div className={isExpanded ? "main-menu main-menu-expand" : "main-menu main-menu-contract"}>
-        <NavBar setIsExpanded={setIsExpanded} isExpanded={isExpanded} updateSelectedPage={updateSelectedPage}/>
+        {/* <NavBar setIsExpanded={setIsExpanded} isExpanded={isExpanded} updateSelectedPage={updateSelectedPage}/> */}
         {isExpanded ? getSelectedPage() : <Player lnglat={props.lnglat} aqi={props.aqi} />}
     </div>
 }

@@ -17,11 +17,11 @@ export const SheetMusic = ({ RelativeAQI }) => {
     const renderer = new Renderer('output', Renderer.Backends.SVG);
 
     // Configure the rendering context.
-    renderer.resize(350, 200);
+    renderer.resize(350, 150);
     const context = renderer.getContext();
 
     // Create a stave of width 400 at position 10, 40.
-    const stave = new Stave(10, 40, 450);
+    const stave = new Stave(10, 10, 450);
 
     // Add a clef and time signature.
     stave.addClef('treble')
@@ -31,19 +31,33 @@ export const SheetMusic = ({ RelativeAQI }) => {
 
     const accidentals = Object.values(RelativeAQI)
 
+    const formatAccidentals = accidentals.map((accidental) => {
+
+      switch(accidental) {
+        case "SHARP":
+          return "#"
+          break;
+        case "FLAT":
+          return "b"
+          break;
+        default:
+          return "n"
+      }
+    });
+
     // Create the notes
     const notes = [
       // A quarter-note C.
-      new StaveNote({ keys: ["c/4"], duration: "q" }).addModifier(new Accidental(`${accidentals[0]}`)),
+      new StaveNote({ keys: ["c/4"], duration: "q" }).addModifier(new Accidental(formatAccidentals[0])),
     
-      // A quarter-note D.
-      new StaveNote({ keys: ["d/4"], duration: "q" }).addModifier(new Accidental(`${accidentals[1]}`)),
-    
-       // A quarter-note D.
-      new StaveNote({ keys: ["e/4"], duration: "q" }).addModifier(new Accidental(`${accidentals[2]}`)),
-
       // A quarter-note E.
-      new StaveNote({ keys: ["f/4"], duration: "q" }).addModifier(new Accidental(`${accidentals[3]}`)),
+      new StaveNote({ keys: ["e/4"], duration: "q" }).addModifier(new Accidental(formatAccidentals[1])),
+    
+       // A quarter-note G.
+      new StaveNote({ keys: ["g/4"], duration: "q" }).addModifier(new Accidental(formatAccidentals[2])),
+
+      // A quarter-note B.
+      new StaveNote({ keys: ["b/4"], duration: "q" }).addModifier(new Accidental(formatAccidentals[3])),
     
     ];
 

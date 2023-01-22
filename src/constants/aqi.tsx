@@ -1,8 +1,8 @@
 
 /* Pitch */
-export const FLAT="b"
-export const SHARP="#"
-export const NATURAL="n"
+export const FLAT="FLAT"
+export const SHARP="SHARP"
+export const NATURAL="NATURAL"
 
 /* AQIs */
 export const HUMIDITY="humidity"

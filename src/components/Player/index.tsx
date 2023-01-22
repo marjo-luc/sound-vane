@@ -2,6 +2,7 @@ import React from "react";
 import { getRelativeAQI } from "../../utils/aqi";
 import { SheetMusic } from '../SheetMusic';
 import { Synth } from '../Synth';
+import { MetricsAQI } from '../MetricsAQI';
 import "./style.css";
 
 export const Player = ({lnglat, aqi}) => {
@@ -15,25 +16,8 @@ export const Player = ({lnglat, aqi}) => {
         {aqi && 
             <>
                 <SheetMusic RelativeAQI={getRelativeAQI(aqi)} />
+                <MetricsAQI aqi={aqi} />
                 <Synth RelativeAQI={getRelativeAQI(aqi)} />
-                <div className="flex key">
-                    <div className="keyItem">
-                        <div>CO</div>
-                        <div>{aqi.co}</div>
-                    </div>
-                    <div className="keyItem">
-                        <div>HUMIDITY</div>
-                        <div>{aqi.humidity} hPa</div>
-                    </div>
-                    <div className="keyItem">
-                        <div>O3</div>
-                        <div>{aqi.o3}</div>
-                    </div>
-                    <div className="keyItem">
-                        <div>PARTICLES</div>
-                        <div>{aqi.pm25} PM (2.5)</div>
-                    </div>
-                </div>
             </>
         }
     </div>

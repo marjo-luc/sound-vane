@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Header } from './components/Header';
 import { MapBox } from './components/Map';
 import { Crosshair } from './components/Crosshair';
 import { LngLatLike } from 'mapbox-gl';
@@ -11,6 +12,7 @@ export const App = () => {
 
   return (
     <>
+      <Header />
       <MapBox lnglat={lnglat} setLngLat={setLngLat} setAQI={setAQI}/>
       <MainMenu lnglat={lnglat} aqi={aqi} />
       <Crosshair />

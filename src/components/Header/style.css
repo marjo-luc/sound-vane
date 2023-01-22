@@ -1,0 +1,13 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    padding: 20px;
+}
+
+header .logo {
+    width: 170px;
+    margin: 0 auto
+}
