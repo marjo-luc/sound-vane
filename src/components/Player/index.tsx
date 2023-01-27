@@ -17,7 +17,7 @@ export const Player = ({lnglat, aqi}) => {
             <>
                 <SheetMusic RelativeAQI={getRelativeAQI(aqi)} />
                 <MetricsAQI aqi={aqi} />
-                <Synth RelativeAQI={getRelativeAQI(aqi)} />
+                <Synth aqi={aqi} RelativeAQI={getRelativeAQI(aqi)} />
             </>
         }
     </div>

@@ -5,9 +5,9 @@ import { getAQIValues } from '../../apis/aqi';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX;
 
-export const MapBox = ({ lnglat, setLngLat, setAQI }) => {
+export const MapBox = ({ lnglat, setLngLat, setAQI, userHasInteracted }) => {
     const mapContainer = useRef(null);
-    const [zoom, setZoom] = useState(9);
+    const [zoom, setZoom] = useState(4);
 
     useEffect(() => {
         const map = new mapboxgl.Map({
@@ -32,9 +32,9 @@ export const MapBox = ({ lnglat, setLngLat, setAQI }) => {
 
     useEffect(() => {
         getAQIValues(lnglat).then((result) => {
-            setAQI(result)
+            userHasInteracted && setAQI(result)
         })
-    }, [lnglat, setAQI]);
+    }, [lnglat, setAQI, userHasInteracted]);
 
     return (
         <div>

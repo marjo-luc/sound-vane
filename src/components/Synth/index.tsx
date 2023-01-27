@@ -1,19 +1,10 @@
 import { useState, useEffect } from "react";
-// import * as Tone from "tone";
-// import { PlayButton } from "../Buttons";
 import "./style.css";
 
-export const Synth = ({RelativeAQI}) => {
+export const Synth = ({aqi, RelativeAQI}) => {
 
     const [isPlaying, setIsPlaying] = useState(false)
 
-    const baseNotes = ["c", "e", "g", "b"];
-    const accidentals = Object.values(RelativeAQI)
-
-    const notes = baseNotes.map((note, index) => (
-      note + "-" + accidentals[index]
-    ))
-    
     const playNote = (note) => {
       
         let player = document.createElement('audio');
@@ -25,8 +16,15 @@ export const Synth = ({RelativeAQI}) => {
         })
     }
 
-    const playSequence = () => {
+    const playSequence = (RelativeAQI) => {
 
+      const baseNotes = ["c", "e", "g", "b"];
+      const accidentals = Object.values(RelativeAQI)
+
+      const notes = baseNotes.map((note, index) => (
+        note + "-" + accidentals[index]
+      ))
+      
       let i = 0;                
 
       function loop() {         
@@ -45,13 +43,13 @@ export const Synth = ({RelativeAQI}) => {
     }
 
     useEffect(() => {
-
+      
       if (!isPlaying) {
         setIsPlaying(true)
-        playSequence()
+        playSequence(RelativeAQI)
       }
 
-    },[RelativeAQI]);
+    },[aqi]);
 
   return (
     <>

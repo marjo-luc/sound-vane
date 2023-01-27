@@ -20,10 +20,10 @@ export async function getAQIValues(lnglat) {
     } else {
         let data = resp.response.data
         let aqiValues = {}
-        aqiValues["o3"] = data.iaqi.h.v
-        aqiValues["humidity"] = data.iaqi.h.v
-        aqiValues["co"] = data.iaqi.co.v
-        aqiValues["pm25"] = data.iaqi.pm25.v
+        aqiValues["o3"] = data.iaqi.so3?.v
+        aqiValues["humidity"] = data.iaqi.h?.v
+        aqiValues["co"] = data.iaqi.co?.v
+        aqiValues["pm25"] = data.iaqi.pm25?.v
         return aqiValues;
     }
 }
