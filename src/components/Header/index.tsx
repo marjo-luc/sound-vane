@@ -6,9 +6,11 @@ export const Header = () => {
 
     return (
         <header>
-            <div className="logo">
-                <img src="/logo.svg" alt="" />
-            </div>
+            <a href="./">
+                <div className="logo">
+                    <img src="/logo.svg" alt="" />
+                </div>
+            </a>
         </header>
     )
 }

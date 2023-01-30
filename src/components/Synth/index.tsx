@@ -36,7 +36,7 @@ export const Synth = ({aqi, RelativeAQI}) => {
           } else {
             setIsPlaying(false)
           }                       
-        }, 1000)
+        }, 500)
       }
 
       loop();   
